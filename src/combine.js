@@ -14,7 +14,9 @@ const occupantsOverEighteen = (people) => {
       .toLowerCase()
       .trim()
       .replace(/ /gi, '-')
-      .replace(/[,\.]/gi, '');
+      .replace(/[,\.]/gi, '') + '-' +
+      person.city.toLowerCase() + '-' +
+      person.state.toLowerCase();
 
     if(!occupants[occupantKey]) {
       occupants[occupantKey] = []
