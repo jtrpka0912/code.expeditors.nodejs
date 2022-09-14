@@ -15,8 +15,6 @@ const printOccupants = (people) => {
     occupants[occupantKey].push(person);
   }
 
-  // console.info(occupants);
-
   for(const location in occupants) {
     const firstFullAddress = 
       occupants[location][0].address + ' ' +
