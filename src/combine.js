@@ -32,6 +32,30 @@ const occupantsOverEighteen = (people) => {
       occupants[household][0].state;
 
       console.log(firstFullAddress.toUpperCase(), ':', occupants[household].length);
+
+      const families = [];
+
+      for(person of occupants[household]) {
+        if(!families[person.lastname]) {
+          families[person.lastname] = [];
+        }
+    
+        families[person.lastname].push(person);
+      }
+
+      Object.keys(families).forEach((family) => {
+        families[family].sort((personA, personB) => {
+          if(personA.firstname < personB.firstname) return -1;
+          if(personA.firstname > personB.firstname) return 1;
+          return 0;
+        });
+    
+        families[family].forEach((person) => {
+          console.log(person.firstname, person.lastname, person.address, person.age);
+        })
+      });
+
+      console.info(' ');
   })
 };
 
