@@ -1,4 +1,5 @@
 const gather = require('./gather');
+const occupants = require('./occupants');
 
 /**
  * @function main
@@ -6,9 +7,8 @@ const gather = require('./gather');
  * @author J. Trpka <jtrpka0912@gmail.com>
  */
 const main = () => {
-  const people = gather();
-
-  console.info(people);
+  const people = gather.gatherPeople();
+  occupants.printOccupants(people);
 };
 
 main();

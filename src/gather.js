@@ -15,8 +15,6 @@ const gatherPeople = () => {
         .replace('"\\n', '') // Replace the end line and d-quotes
         .split('","'); // Split by ","
 
-      console.info(characteristics);
-
       if(characteristics.length === 6) {
         return {
           firstname: characteristics[0],
@@ -33,4 +31,6 @@ const gatherPeople = () => {
   }
 }
 
-module.exports = () => gatherPeople();
+module.exports = {
+  gatherPeople
+};
