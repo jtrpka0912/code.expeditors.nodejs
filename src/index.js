@@ -1,5 +1,6 @@
 const gather = require('./gather');
 const occupants = require('./occupants');
+const eighteen = require('./eighteen');
 
 /**
  * @function main
@@ -9,6 +10,7 @@ const occupants = require('./occupants');
 const main = () => {
   const people = gather.gatherPeople();
   occupants.printOccupants(people);
+  eighteen.printOverEighteen(people);
 };
 
 main();
