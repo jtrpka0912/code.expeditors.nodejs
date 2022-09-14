@@ -8,7 +8,7 @@ const gatherPeople = () => {
     // Split the data by either \r or \n
     const lines = data.split(/\r?\n/);
 
-    const people = lines.map((line) => {
+    return lines.map((line) => {
 
       const characteristics = line
         .replace('"', '') // Replace the first instance of d-quotes
@@ -17,8 +17,17 @@ const gatherPeople = () => {
 
       console.info(characteristics);
 
-      return null;
-    });
+      if(characteristics.length === 6) {
+        return {
+          firstname: characteristics[0],
+          lastname: characteristics[1],
+          address: characteristics[2],
+          city: characteristics[3],
+          state: characteristics[4],
+          age: characteristics[5]
+        } 
+      }
+    }).filter((person) => person);
   } catch(err) {
     console.error(err);
   }

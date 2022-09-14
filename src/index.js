@@ -6,7 +6,9 @@ const gather = require('./gather');
  * @author J. Trpka <jtrpka0912@gmail.com>
  */
 const main = () => {
-  gather();
+  const people = gather();
+
+  console.info(people);
 };
 
 main();
