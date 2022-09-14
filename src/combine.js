@@ -10,20 +10,29 @@ const occupantsOverEighteen = (people) => {
   const occupants = [];
   
   for(const person of overEighteenSortedByLastName) {
-      const occupantKey = person.address
-        .toLowerCase()
-        .trim()
-        .replace(/ /gi, '-')
-        .replace(/[,\.]/gi, '');
-  
-      if(!occupants[occupantKey]) {
-        occupants[occupantKey] = []
-      }
-  
-      occupants[occupantKey].push(person);
+    const occupantKey = person.address
+      .toLowerCase()
+      .trim()
+      .replace(/ /gi, '-')
+      .replace(/[,\.]/gi, '');
+
+    if(!occupants[occupantKey]) {
+      occupants[occupantKey] = []
     }
 
-  console.info(occupants);
+    occupants[occupantKey].push(person);
+  }
+
+  // console.info(occupants);
+
+  Object.keys(occupants).forEach((household) => {
+    const firstFullAddress = 
+      occupants[household][0].address + ' ' +
+      occupants[household][0].city + ', ' +
+      occupants[household][0].state;
+
+      console.log(firstFullAddress.toUpperCase(), ':', occupants[household].length);
+  })
 };
 
 module.exports = {
