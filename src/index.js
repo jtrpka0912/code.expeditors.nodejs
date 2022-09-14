@@ -8,7 +8,7 @@ const occupants = require('./occupants');
  */
 const main = () => {
   const people = gather.gatherPeople();
-  occupants.occupants(people);
+  occupants.printOccupants(people);
 };
 
 main();
